@@ -16,6 +16,7 @@ export class JobsController {
 
   showJobs() {
     _draw()
+    document.getElementById('create-button').classList.remove('visually-hidden')
     document.getElementById('modal-body-slot').innerHTML = getJobForm()
   }
 

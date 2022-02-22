@@ -12,7 +12,6 @@ function _draw() {
 export class CarsController {
   constructor() {
     ProxyState.on('cars', _draw)
-    console.log('cars controller loaded')
 
   }
 

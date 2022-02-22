@@ -2,15 +2,15 @@ import { generateId } from "../Utils/generateId.js";
 
 
 export class House {
-  constructor({ sqFootage, location, bedrooms, bathrooms, acreage, description, imgUrl }) {
-    this.id = generateId()
-    this.sqFootage = sqFootage
-    this.location = location
-    this.bedrooms = bedrooms
-    this.bathrooms = bathrooms
-    this.acreage = acreage
-    this.description = description
-    this.imgUrl = imgUrl
+  constructor(data) {
+    this.id = data.id || ''
+    this.bedrooms = data.bedrooms || 1
+    this.bathrooms = data.bathrooms || 1
+    this.levels = data.levels || 1
+    this.year = data.year || 2000
+    this.price = data.price || 50000
+    this.imgUrl = data.imgUrl || ''
+    this.description = data.description || ''
   }
 
   get Template() {
@@ -19,13 +19,14 @@ export class House {
         <div class="bg-white rounded shadow">
           <img src="${this.imgUrl}" alt="house image" class="img-fluid rounded-top">
           <div class="p-3">
-            <p>${this.sqFootage} Square Feet</p>
-            <p>${this.location}</p>
-            <p>${this.bedrooms} bedrooms</p>
-            <p>${this.bathrooms} bathrooms</p>
-            <p>On ${this.acreage} acres</p>
-            <p>${this.description}</p>
+          <p>${this.bedrooms} bedrooms</p>
+          <p>${this.bathrooms} bathrooms</p>
+          <p>${this.levels == 1 ? 'Single' : `${this.levels}`} Level${this.levels > 1 ? 's' : ''}</p>
+          <p>Built in the year ${this.year}</p>
+          <p>$${this.price}</p>
+          <p>${this.description}</p>
           </div>
+            <button class="btn btn-outline-warning" onclick="app.housesController.editHouse('${this.id}')"> Edit </button>
           <button class="btn btn-outline-danger m-1" onclick="app.housesController.deleteHouse('${this.id}')">Delete</button>
         </div>
       </div>
