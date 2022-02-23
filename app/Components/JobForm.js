@@ -4,7 +4,7 @@ export function getJobForm() {
       <h3 class="col-12">Submit a Job</h3>
       <div class="mb-3 p-2 col-4">
         <label for="" class="form-label">Hiring Company</label>
-        <input type="text" class="form-control" name="hiringCompany" id="hiringCompany" aria-describedby="helpId"
+        <input type="text" class="form-control" name="company" id="company" aria-describedby="helpId"
           placeholder="Company Name" value="">
       </div>
       <div class="mb-3 p-2 col-4">
